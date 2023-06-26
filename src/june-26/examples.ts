@@ -1,57 +1,59 @@
-let greeting = "Hello";
-const name1 = "John";
-let age = 25;
+let greeting: string = "Hello";
+const name1: string = "John";
+let age: number = 25;
 
-function sayHello(greeting, name) {
+function sayHello(greeting: string, name: string): void {
   console.log(greeting + ", " + name + "!");
 }
 
-function getBirthYear() {
+function getBirthYear(): number {
   const currentYear = new Date().getFullYear();
   return currentYear - age;
 }
 
-function multiply(a, b) {
+function multiply(a: number, b: number): number {
   return a * b;
 }
 
 // ===================
 
-let num1 = 5;
-let num2 = 10;
+let num1: number = 5;
+let num2: number = 10;
 
-function add(a, b) {
+function add(a: number, b: number): number {
   return a + b;
 }
 
-function subtract(a, b) {
+function subtract(a: number, b: number): number {
   return a - b;
 }
 
-function divide(a, b) {
+function divide(a: number, b: number): number {
   return a / b;
 }
 
-function calculate(a, b) {
-  const sum = add(a, b);
-  const result = multiply(sum, num1);
+function calculate(a: number, b: number): number {
+  const sum: number = add(a, b);
+  const result: number = multiply(sum, num1);
   return divide(result, num2);
 }
 
 // ===================
 
-function calculateArea(rectangle) {
+
+
+function calculateArea(rectangle: Rectangle): number {
   return rectangle.width * rectangle.height;
 }
 
-function calculatePerimeter(rectangle) {
+function calculatePerimeter(rectangle: Rectangle): number {
   return 2 * (rectangle.width + rectangle.height);
 }
 
-function createRectangle(width, height) {
+function createRectangle(width: number, height: number): Rectangle {
   return { width, height };
 }
 
-const rectangle = createRectangle(5, 10);
-const area = calculateArea(rectangle);
-const perimeter = calculatePerimeter(rectangle);
+const rectangle: Rectangle= createRectangle(5, 10);
+const area: number = calculateArea(rectangle);
+const perimeter: number = calculatePerimeter(rectangle);
