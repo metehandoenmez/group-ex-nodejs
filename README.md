@@ -15,3 +15,4 @@ React app will run on **localhost:3000**.
 ## Start editing the **src/app.jsx** file.
 - Add typescript type definitions to CardComponent.jsx props.
 - Add typescript type definitions to LoginComponent.jsx props.
+- Add typescript type dfinitions to examples.ts
