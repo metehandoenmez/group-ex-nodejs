@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-content {
+  width: 100%;
+  height: 100vh;
+  padding: 50px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  padding: 5px 10px 5px 10px;
+}
+
+.redDiv {
+  background-color: red;
+}
+
+.blueDiv {
+  background-color: blue;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  height: 100%;
+}
+
+#root {
+  padding-top: 50px;
+  display: flex;
+  place-content: center;
+}
+
+.hidden {
+  display: none;
+}
