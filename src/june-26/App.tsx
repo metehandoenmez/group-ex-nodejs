@@ -17,7 +17,7 @@ function App() {
 
         <Route path="/" element={<WelcomeComponent></WelcomeComponent>}></Route>
 
-        <Route path="/card" element={<CardComponent></CardComponent>}></Route>
+        <Route path="/card" element={<CardComponent content="content" updateItem={() => {}} deleteItem={() => {}} ></CardComponent>}></Route>
 
         <Route path="/students" element={<Students></Students>}></Route>
 

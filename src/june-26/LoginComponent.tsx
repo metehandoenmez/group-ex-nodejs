@@ -1,6 +1,13 @@
+import { type } from "os";
 import { useState } from "react";
 
-export default function LoginComponent({ visible, setLoggedIn, setUsername }) {
+type LoginComponentType = {
+  visible: boolean,
+  setLoggedIn: Function,
+  setUsername: Function
+}
+
+export default function LoginComponent({ visible, setLoggedIn, setUsername }:LoginComponentType) {
   const [usernameInput, setUsernameInput] = useState("");
 
   return (
