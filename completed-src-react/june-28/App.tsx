@@ -8,8 +8,11 @@ import WelcomeComponent from "./WelcomeComponent";
 import CardComponent from "./CardComponent";
 import NotFound from "./NotFound";
 import Students from "./Students";
+import LoginComponent from "./LoginComponent";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div>
       <Routes>
@@ -17,7 +20,16 @@ function App() {
 
         <Route path="/" element={<WelcomeComponent></WelcomeComponent>}></Route>
 
-        <Route path="/card" element={<CardComponent></CardComponent>}></Route>
+        <Route
+          path="/card"
+          element={
+            <CardComponent
+              content="Hello"
+              updateItem={() => {}}
+              deleteItem={() => {}}
+            ></CardComponent>
+          }
+        ></Route>
 
         <Route path="/students" element={<Students></Students>}></Route>
 
@@ -31,6 +43,17 @@ function App() {
       <Link to={"/number"}>Number</Link>
       <br />
       <Link to={"/students"}>Students</Link>
+      <CardComponent
+        content="Hello content"
+        index={0}
+        updateItem={() => {}}
+        deleteItem={() => {}}
+      ></CardComponent>
+      <LoginComponent
+        visible={!loggedIn}
+        setLoggedIn={setLoggedIn}
+        setUsername={() => {}}
+      ></LoginComponent>
     </div>
   );
 }
