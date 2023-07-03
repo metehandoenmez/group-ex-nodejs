@@ -1,10 +1,23 @@
-GET http://localhost:3000/api/storage
+GET http://localhost:3000/api/variable
 
 ###
 
-POST http://localhost:3000/api/storage
+POST http://localhost:3000/api/variable
 content-type: application/json
 
 {
   "value": "asdf"
+}
+
+###
+
+DELETE http://localhost:3000/api/variable
+
+###
+
+PUT http://localhost:3000/api/variable
+content-type: application/json
+
+{
+  "value": "put new value"
 }
