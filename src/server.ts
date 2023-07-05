@@ -5,26 +5,55 @@ const port = 3000;
 
 app.use(express.json());
 
-var var1 = "hello metehan";
+// var var1 = "hello metehan";
 
-app.get("/api/variable", (request, response) => {
+let planetsArr: {
+  id: number;
+  name: string;
+}[] = [];
+
+let currentId: number = 0;
+
+app.get("/api/planets", (request, response) => {
   response.json({
-    value: var1,
+    planets: planetsArr,
+    currentId: currentId,
   });
 });
 
-app.post("/api/variable", (request, response) => {
+app.post("/api/planets", (request, response) => {
   const { value } = request.body;
-  var1 = value;
+  planetsArr.push({
+    id: currentId,
+    name: value,
+  });
+  currentId = currentId + 1;
   response.json({
     status: "success",
   });
 });
 
-app.delete("/api/variable", (request, response) => {
-  var1 = "";
+app.put("/api/planets/:id", (request, response) => {
+  const { value } = request.body;
+  let { id } = request.params;
+  for (let i = 0; i < planetsArr.length; i++) {
+    const planet = planetsArr[i];
+    if (Number(id) === planet.id) {
+      planet.name = value;
+    }
+  }
   response.json({
-    status: "success",
+    status: "updated",
+  });
+});
+
+app.delete("/api/planets/:id", (request, response) => {
+  let { id } = request.params;
+
+  planetsArr = planetsArr.filter((planet) => planet.id !== Number(id));
+
+  response.json({
+    status: "deleted",
   });
 });
 
