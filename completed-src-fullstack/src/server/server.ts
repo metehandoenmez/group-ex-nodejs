@@ -7,7 +7,7 @@ const port = 3001;
 app.use(express.json());
 app.use(cors());
 
-var itemsList = [];
+var itemsList: any = [];
 
 app.post("/api/items", (req, res) => {
   const value = req.body.value;
