@@ -48,3 +48,9 @@ In the ItemComponent, display the text we get in another input tag. Whenever we 
 
 Add a Delete button to the ItemComponent, that deletes that item from the list.
 
+For the Backend:
+
+Implement an app.delete() endpoint, which will remove an item from the itemsArr, by using an id from the URL.
+The URL for the app.delete() looks like this:
+
+"/api/items/:id"
