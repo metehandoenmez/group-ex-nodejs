@@ -43,8 +43,5 @@ For the frontend:
 Add an input tag and a button tag called "Save" at the top of the page, and when we click on the button Save, we send that item to the backend to save it there, and also display it in a list in the frontend.
 Make it so when the page loads, we load all the items from the backend, and display them in a list.
 
-Create a ItemComponent that will show the data we get for an item.
-In the ItemComponent, display the text we get in another input tag. Whenever we change the text in that input tag, we make a PUT request to the backend, to update the text on the backend aswell.
-
-Add a Delete button to the ItemComponent, that deletes that item from the list.
+Add a Delete button to each item, that deletes that item from the list.
 
