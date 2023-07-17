@@ -13,15 +13,29 @@ type Item = {
 };
 
 let itemsArr: Item[] = [];
-let currentId = 0;
+let currentId = 1;
+
+app.get("/api/items", (req, res) => {
+  res.json({ list: itemsArr });
+});
 
 app.post("/api/items", (req: Request, res: Response) => {
   var value = req.body.value;
   itemsArr.push({
-    id: 0,
+    id: currentId,
     content: value,
   });
-  currentId++;
+
+  currentId = currentId + 1;
+
+  res.json({ status: "ok", list: itemsArr });
+});
+
+// DELETE http://localhost:3001/api/items/2
+
+app.delete("/api/items/:id", (req, res) => {
+  const id = Number(req.params.id);
+  itemsArr = itemsArr.filter((item) => item.id !== id);
   res.json({ status: "ok", list: itemsArr });
 });
 

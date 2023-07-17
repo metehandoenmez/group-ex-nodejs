@@ -1,11 +1,31 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./App.css";
+import ItemComponent from "./ItemComponent";
 
 const API_URL = "http://localhost:3001/api/items";
 
 function App() {
   const inputRef = useRef();
   const [dataList, setDataList] = useState([]);
+
+  const getData = async () => {
+    let response = await fetch(API_URL, {
+      method: "GET",
+    });
+    let responseJson = await response.json();
+    setDataList(responseJson.list);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const deleteItem = async (id) => {
+    let response = await fetch(API_URL + "/" + id, {
+      method: "DELETE",
+    });
+    getData();
+  };
 
   return (
     <div className="main-content">
@@ -32,7 +52,11 @@ function App() {
 
       <div>
         {dataList.map((el) => (
-          <p>{el.content}</p>
+          <ItemComponent
+            deleteItem={deleteItem}
+            text={el.content}
+            id={el.id}
+          ></ItemComponent>
         ))}
       </div>
     </div>
