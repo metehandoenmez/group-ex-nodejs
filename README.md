@@ -41,3 +41,5 @@ Implement CRUD operations for this list, using "/api/items" as the base API url.
 For the Backend:
 
 Update the expressjs endpoints, write functions for each action (getAll, create, updateByID, deleteByID), and use them in your express server. Write the proper types for these functions (req and res objects as parameters).
+
+Move the functions in a separate file, and import them in server.ts.
