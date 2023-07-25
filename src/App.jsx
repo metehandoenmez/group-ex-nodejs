@@ -48,13 +48,31 @@ function App() {
       >
         Save
       </button>
-
+      <button
+        onClick={() => {
+          const sortArr = [...dataList];
+          sortArr.sort((a, b) => a.timestamp - b.timestamp);
+          setDataList(sortArr);
+        }}
+      >
+        Sort by Recent
+      </button>
+      <button
+        onClick={() => {
+          const sortArr = [...dataList];
+          sortArr.sort((a, b) => b.timestamp - a.timestamp);
+          setDataList(sortArr);
+        }}
+      >
+        Sort by Oldest
+      </button>
       <div>
         {dataList.map((el) => (
           <ItemComponent
             deleteItem={deleteItem}
             text={el.content}
             id={el.id}
+            key={el.id + "key"}
           ></ItemComponent>
         ))}
       </div>

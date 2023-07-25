@@ -10,12 +10,13 @@ app.use(cors());
 type Item = {
   id: number;
   content: string;
+  timestamp: number;
 };
 
 let itemsArr: Item[] = [];
 let currentId = 100;
 
-app.get("/api/items", (req, res) => {
+app.get("/api/items", (req: Request, res: Response) => {
   res.json({ list: itemsArr });
 });
 
@@ -24,6 +25,7 @@ app.post("/api/items", (req: Request, res: Response) => {
   itemsArr.push({
     id: currentId,
     content: value,
+    timestamp: Date.now(),
   });
 
   currentId = currentId + 1;

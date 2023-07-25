@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { API_URL } from "./constants";
+import React from "react";
 
 type ItemComponentPropType = {
   text: String;
